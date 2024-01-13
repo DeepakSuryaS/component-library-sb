@@ -19,8 +19,8 @@ const config = {
     },
   },
   docs: {
-    autodocs: "tag",
-    // autodocs: true, // this enables the "Docs" option in the sidebar for the component
+    // autodocs: "tag",
+    autodocs: true, // this enables the "Docs" option in the sidebar for the component
     // check here -> https://storybook.js.org/blog/storybook-7-docs/#autodocs-are-component-centric
   },
 };

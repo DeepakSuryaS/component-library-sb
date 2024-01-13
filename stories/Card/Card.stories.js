@@ -7,9 +7,11 @@ export default {
   component: Card,
 };
 
-export const Template = (args) => <Card {...args} />;
+const Template = (args) => <Card {...args} />;
+const ListTemplate = ({ items, ...args }) =>
+  items.map((item, index) => <Card key={index} {...args} {...item} />);
 
-export const Default = Template.bind({});
+export const Default = Template.bind({}); // only exported items are shown in storybook as a story
 
 export const Clickable = Template.bind({});
 Clickable.args = {
@@ -21,8 +23,19 @@ Dragable.args = {
   isDragable: true,
 };
 
-export const Colors = () =>
-  options.colors.map((color, index) => <Card key={index} color={color} />);
+// export const Colors = () =>
+//   options.colors.map((color, index) => <Card key={index} color={color} />);
 
-export const Sizes = () =>
-  options.sizes.map((size, index) => <Card key={index} size={size} />);
+// export const Sizes = () =>
+//   options.sizes.map((size, index) => <Card key={index} size={size} />);
+
+// for ListTemplate
+export const Colors = ListTemplate.bind({});
+Colors.args = {
+  items: options.colors.map((color) => ({ color })),
+};
+
+export const Sizes = ListTemplate.bind({});
+Sizes.args = {
+  items: options.sizes.map((size) => ({ size })),
+};

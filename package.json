@@ -1,0 +1,28 @@
+{
+  "name": "component-library-sb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:DeepakSuryaS/component-library-sb.git",
+  "author": "Deepak Surya <ideepaksuryas@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.6.8",
+    "@storybook/addon-interactions": "7.6.8",
+    "@storybook/addon-links": "7.6.8",
+    "@storybook/addon-onboarding": "1.0.10",
+    "@storybook/blocks": "7.6.8",
+    "@storybook/react": "7.6.8",
+    "@storybook/react-webpack5": "7.6.8",
+    "@storybook/test": "7.6.8",
+    "prop-types": "15.8.1",
+    "storybook": "7.6.8"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  }
+}

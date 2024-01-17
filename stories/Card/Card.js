@@ -3,21 +3,42 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { options } from "./constants";
 import styles from "./Card.module.css";
+import { getClasses } from "../../helpers/styles";
 
 export const Card = ({
   children,
   color = "primary",
   size = "sm",
   isClickable,
-  isDragable,
+  isDraggable,
 }) => {
+  // below is how cssModules maps classNames
+  // {
+  //   "card": "qVzYry2rVqvv0CZTuHDp",
+  //   "color-primary": "GohFCj3UhmaoZgAibVJ7",
+  //   "color-secondary": "qpxaXPYeX8ZsU49OX4eG",
+  //   "size-sm": "CcNBlZ8Brm8YCOyt5Ltj",
+  //   "size-lg": "SKxwv9VT6hRy_kO1cmR5",
+  //   "is-clickable": "xJ6OLGu3c870csg1VzQL",
+  //   "is-draggable": "eaZYxL4JKscf6r_6qzkX"
+  // }
+
+  const getStyles = getClasses(styles)({
+    color,
+    size,
+  });
+
   return (
     <div
-      className={classNames(styles.card, {
-        [styles[`color-${color}`]]: color,
-        [styles[`size-${size}`]]: size,
-        [styles["is-clickable"]]: isClickable,
-        [styles["is-dragable"]]: isDragable,
+      // className={classNames(styles.card, {
+      //   [styles[`color-${color}`]]: color,
+      //   [styles[`size-${size}`]]: size,
+      //   [styles["is-clickable"]]: isClickable,
+      //   [styles["is-draggable"]]: isDraggable,
+      // })}
+      className={getStyles("card", ["color", "size"], {
+        "is-clickable": isClickable,
+        "is-draggable": isDraggable,
       })}
     >
       {children}
@@ -30,7 +51,7 @@ Card.propTypes = {
   color: PropTypes.oneOf(options.colors),
   size: PropTypes.oneOf(options.sizes),
   isClickable: PropTypes.bool,
-  isDragable: PropTypes.bool,
+  isDraggable: PropTypes.bool,
 };
 
 export default Card;

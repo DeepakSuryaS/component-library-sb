@@ -47,9 +47,9 @@ Clickable.args = {
   isClickable: true,
 };
 
-export const Dragable = Template.bind({});
-Dragable.args = {
-  isDragable: true,
+export const Draggable = Template.bind({});
+Draggable.args = {
+  isDraggable: true,
 };
 
 // export const Colors = () =>

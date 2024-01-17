@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { options } from "./constants";
-import "./Card.css";
+import styles from "./Card.module.css";
 
 export const Card = ({
   children,
@@ -13,11 +13,11 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={classNames("card", {
-        [`color-${color}`]: color,
-        [`size-${size}`]: size,
-        "is-clickable": isClickable,
-        "is-dragable": isDragable,
+      className={classNames(styles.card, {
+        [styles[`color-${color}`]]: color,
+        [styles[`size-${size}`]]: size,
+        [styles["is-clickable"]]: isClickable,
+        [styles["is-dragable"]]: isDragable,
       })}
     >
       {children}

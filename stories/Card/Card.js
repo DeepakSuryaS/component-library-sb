@@ -4,11 +4,14 @@ import PropTypes from "prop-types";
 import { options } from "./constants";
 import styles from "./Card.module.css";
 import { getClasses } from "../../helpers/styles";
+import withStyles from "../../hoc/withStyles";
 
 export const Card = ({
+  getStyles,
   children,
-  color = "primary",
-  size = "sm",
+  // the below two props are needed if using hoc, since hoc accepts these props and deals with it so this component doesn't have to
+  // color = "primary",
+  // size = "sm",
   isClickable,
   isDraggable,
 }) => {
@@ -23,10 +26,11 @@ export const Card = ({
   //   "is-draggable": "eaZYxL4JKscf6r_6qzkX"
   // }
 
-  const getStyles = getClasses(styles)({
-    color,
-    size,
-  });
+  // below is not needed if we're using hoc (hoc -> withStyles)
+  // const getStyles = getClasses(styles)({
+  //   color,
+  //   size,
+  // });
 
   return (
     <div
@@ -47,6 +51,7 @@ export const Card = ({
 };
 
 Card.propTypes = {
+  getStyles: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(options.colors),
   size: PropTypes.oneOf(options.sizes),
@@ -54,4 +59,5 @@ Card.propTypes = {
   isDraggable: PropTypes.bool,
 };
 
-export default Card;
+// export default Card;
+export default withStyles(styles)(Card);

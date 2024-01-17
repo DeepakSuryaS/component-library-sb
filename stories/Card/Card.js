@@ -5,7 +5,7 @@ import { options } from "./constants";
 import "./Card.css";
 
 export const Card = ({
-  children = "I'm a card!",
+  children,
   color = "primary",
   size = "sm",
   isClickable,

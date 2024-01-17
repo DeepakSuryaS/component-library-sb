@@ -5,6 +5,35 @@ import { options } from "./constants";
 export default {
   title: "Card",
   component: Card,
+  args: {
+    children: "This is a card",
+  },
+  argTypes: {
+    color: {
+      description: "**Options: **",
+      table: {
+        type: {
+          summary: options.colors.map((color) => color).join(" | "),
+        },
+      },
+      control: {
+        type: "select",
+        options: options.colors,
+      },
+    },
+    size: {
+      description: "**Options: **",
+      table: {
+        type: {
+          summary: options.sizes.map((size) => size).join(" | "),
+        },
+      },
+      control: {
+        type: "select",
+        options: options.sizes,
+      },
+    },
+  },
 };
 
 const Template = (args) => <Card {...args} />;

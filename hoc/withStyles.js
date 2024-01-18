@@ -5,9 +5,7 @@ const withStyles = (styles) => (Component) => {
   const ComponentWithStyles = (props) => {
     const allProps = { ...Component.defaultProps, ...props };
 
-    return (
-      <Component {...props} getStyles={getClasses(styles)({ ...allProps })} />
-    );
+    return <Component getStyles={getClasses(styles)(allProps)} {...props} />;
   };
 
   ComponentWithStyles.displayName = Component.displayName;

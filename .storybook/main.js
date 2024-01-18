@@ -1,4 +1,4 @@
-const cssModules = require("../config/cssModules");
+// const cssModules = require("../config/cssModules");
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
@@ -25,6 +25,6 @@ const config = {
     autodocs: true, // this enables the "Docs" option in the sidebar for the component
     // check here -> https://storybook.js.org/blog/storybook-7-docs/#autodocs-are-component-centric
   },
-  webpackFinal: cssModules(),
+  // webpackFinal: cssModules(),
 };
 export default config;

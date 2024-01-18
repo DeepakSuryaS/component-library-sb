@@ -16,11 +16,12 @@ const styles = {
 };
 
 export const decorators = [
-  (Story) => (
-    <div style={styles}>
-      <Story />
-    </div>
-  ),
+  (Story, parameters) =>
+    disableGlobalArgTypes(parameters)("getStyles") || (
+      <div style={styles}>
+        <Story />
+      </div>
+    ),
 ];
 
 const preview = {

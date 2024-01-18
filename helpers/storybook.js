@@ -25,7 +25,6 @@ export const getListTemplate =
   };
 
 export const getOptionsArgTypes = (options) => {
-  console.log("options check:", { options });
   return {
     description: "**Options: **",
     table: {
@@ -39,3 +38,11 @@ export const getOptionsArgTypes = (options) => {
     },
   };
 };
+
+export const disableGlobalArgTypes =
+  (parameters) =>
+  (...args) => {
+    args.forEach((arg) => {
+      parameters.argTypes[arg].table.disable = true;
+    });
+  };
